@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { CounterProps } from "../types"
 
-export function Counter({ count, onChange, onDecrement, onIncrement, onReset, history }: CounterProps) {
+export function Counter({ count, onChange, onDecrement, onIncrement, onReset, saveMessage, history }: CounterProps) {
     const [value, setValue] = useState(1);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,10 +41,10 @@ export function Counter({ count, onChange, onDecrement, onIncrement, onReset, hi
             <button onClick={handleReset}>Reset</button>
             <label>Step Value:</label>
             <input type="number" value={value} onChange={handleChange}></input>
-            <p>Changes saved.</p>
+            <p>{saveMessage}</p>
             <p>Count History:</p>
-            <ul>{history.map((count) => (
-                <li>{count}</li>
+            <ul>{history.map((count, index) => (
+                <li key={index}>{count}</li>
             ))}</ul>
             <p>Use ArrowUp to increment and ArrowDown to decrement.</p>
         </>

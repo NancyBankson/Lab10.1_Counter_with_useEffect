@@ -4,5 +4,6 @@ export interface CounterProps {
     onDecrement: (decrementClick: boolean) => void;
     onIncrement: (incrementClick: boolean) => void;
     onReset: (resetClick: boolean) => void;
+    saveMessage: string;
     history: number[];
 }
