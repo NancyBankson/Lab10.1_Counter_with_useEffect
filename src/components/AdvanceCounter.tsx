@@ -1,9 +1,12 @@
+import { useState } from "react";
 import type { CounterProps } from "../types"
 
 export function Counter({ count, onChange, onDecrement, onIncrement, countHistory}: CounterProps) {
+    const [value, setValue] = useState(1);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newStep: string = event.target.value;
+        setValue(parseInt(newStep));
         onChange(parseInt(newStep));
     }
 
@@ -25,7 +28,7 @@ export function Counter({ count, onChange, onDecrement, onIncrement, countHistor
             <button onClick={handleIncrement}>Increment</button>
             <button>Reset</button>
             <label>Step Value:</label>
-            <input type="number" value="1" onChange={handleChange}></input>
+            <input type="number" value={value} onChange={handleChange}></input>
             <p>Changes saved.</p>
             <p>Count History:</p>
             <p>{countHistory}</p>
