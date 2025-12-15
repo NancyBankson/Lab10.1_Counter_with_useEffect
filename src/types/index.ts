@@ -1,5 +1,7 @@
 export interface CounterProps {
     count: number;
-    step: number;
+    onChange: (newStep: number) => void;
+    onDecrement: (decrementClick: boolean) => void;
+    onIncrement: (incrementClick: boolean) => void;
     countHistory: number[];
 }
