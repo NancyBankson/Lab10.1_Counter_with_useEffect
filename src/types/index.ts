@@ -3,5 +3,6 @@ export interface CounterProps {
     onChange: (newStep: number) => void;
     onDecrement: (decrementClick: boolean) => void;
     onIncrement: (incrementClick: boolean) => void;
-    countHistory: number[];
+    onReset: (resetClick: boolean) => void;
+    history: number[];
 }
